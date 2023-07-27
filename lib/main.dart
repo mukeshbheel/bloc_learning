@@ -1,6 +1,8 @@
 import 'package:bloc_learning/AppBlocs.dart';
 import 'package:bloc_learning/AppEvents.dart';
 import 'package:bloc_learning/AppState.dart';
+import 'package:bloc_learning/pages/sign_in/sign_in.dart';
+import 'package:bloc_learning/pages/welcome/welcome_blocs.dart';
 import 'package:bloc_learning/pages/welcome/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,17 +17,31 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AppBlocs(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          // lazy: false,
+          create: (context) => WelcomeBlocs(),
+        ),
+        BlocProvider(
+          // lazy: false,
+          create: (context) => AppBlocs(),
+        )
+      ],
       child: ScreenUtilInit(
         builder: (context, child){
           return MaterialApp(
+            debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
             theme: ThemeData(
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
             ),
             home: const WelcomePage(),
+            routes: {
+              'myHomePage' : (context) => MyHomePage(),
+              'signIn' : (context) => SignIn()
+            },
           );
         },
       ),
@@ -66,11 +82,13 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             FloatingActionButton(
+              heroTag: 'heroTag1',
               // onPressed: _incrementCounter,
               onPressed: () => BlocProvider.of<AppBlocs>(context).add(IncrementEvent()),
               tooltip: 'Increment',
               child: Icon(Icons.add),
             ),FloatingActionButton(
+              heroTag: 'heroTag2',
               // onPressed: _decrementCounter,
               onPressed: () => BlocProvider.of<AppBlocs>(context).add(DecrementEvent()),
               tooltip: 'Decrement',
