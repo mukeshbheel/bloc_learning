@@ -1,3 +1,4 @@
+import 'package:bloc_learning/common/values/colors.dart';
 import 'package:bloc_learning/main.dart';
 import 'package:bloc_learning/pages/welcome/welcome_blocs.dart';
 import 'package:bloc_learning/pages/welcome/welcome_events.dart';
@@ -74,10 +75,10 @@ class _WelcomePageState extends State<WelcomePage> {
                         position: state.page,
                         dotsCount: 3,
                         decorator: DotsDecorator(
-                            color: Colors.grey,
+                            color: ColorStyle.textGrey,
                             size: Size.square(8),
                             activeSize: Size(10, 8),
-                            activeColor: Colors.blue,
+                            activeColor: ColorStyle.primaryButton,
                             activeShape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(5)
                             )
@@ -109,7 +110,7 @@ class _WelcomePageState extends State<WelcomePage> {
             title,
             style: TextStyle(
               fontSize: 24.spMin,
-              color: Colors.black,
+              color: ColorStyle.primaryText,
               fontWeight: FontWeight.normal,
             ),
           ),
@@ -121,7 +122,7 @@ class _WelcomePageState extends State<WelcomePage> {
             subtitle,
             style: TextStyle(
               fontSize: 14.sp,
-              color: Colors.black.withOpacity(0.5),
+              color: ColorStyle.primaryText.withOpacity(0.5),
               fontWeight: FontWeight.normal,
             ),
           ),
@@ -140,7 +141,7 @@ class _WelcomePageState extends State<WelcomePage> {
             height: 50.w,
             margin: EdgeInsets.only(top: 100.w),
             decoration: BoxDecoration(
-                color: Colors.blueAccent,
+                color: ColorStyle.primaryButton,
                 borderRadius: BorderRadius.circular(15),
                 boxShadow: [
                   BoxShadow(
@@ -155,7 +156,7 @@ class _WelcomePageState extends State<WelcomePage> {
               child: ResponsiveText(buttonName,
                 style: TextStyle(
                   fontWeight: FontWeight.normal,
-                  color: Colors.white,
+                  color: ColorStyle.primaryButtonText,
                   fontSize: 14.spMin,
                 ),
               ),

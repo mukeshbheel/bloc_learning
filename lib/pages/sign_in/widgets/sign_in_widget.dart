@@ -1,3 +1,4 @@
+import 'package:bloc_learning/common/values/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -8,7 +9,7 @@ AppBar buildAppBar() {
     bottom: PreferredSize(
       preferredSize: const Size.fromHeight(1.0),
       child: Container(
-        color: Colors.grey.withOpacity(0.5),
+        color: ColorStyle.primarySecondaryBackgound,
         height: 1.w,
       ),
     ),
@@ -17,7 +18,7 @@ AppBar buildAppBar() {
       'Log In',
       style: TextStyle(
         fontSize: 16.sp,
-        color: Colors.black,
+        color: ColorStyle.primaryText,
       ),
     ),
   );
@@ -27,6 +28,7 @@ AppBar buildAppBar() {
 Widget buildThirdPartyLoginWidget(BuildContext context) {
   return Container(
     margin: EdgeInsets.only(top: 40.h, bottom: 20.h),
+    padding: EdgeInsets.symmetric(horizontal: 30.w),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
@@ -71,7 +73,7 @@ Widget buildTextFieldwithIcon(String hintText, String fieldType, String fieldIco
     decoration: BoxDecoration(
         // color: Colors.lightBlue,
         borderRadius: BorderRadius.circular(15),
-        border: Border.all(color: Colors.black.withOpacity(0.5))),
+        border: Border.all(color: ColorStyle.borderGrey)),
     child: Row(
       children: [
         Container(
@@ -87,7 +89,7 @@ Widget buildTextFieldwithIcon(String hintText, String fieldType, String fieldIco
             // keyboardType: TextInputType.multiline,
             obscureText: fieldType == 'password',
             style: TextStyle(
-                color: Colors.black,
+                color: ColorStyle.primaryText,
                 fontSize: 12.sp,
                 fontWeight: FontWeight.normal,
                 fontFamily: "Avenir",
@@ -95,7 +97,7 @@ Widget buildTextFieldwithIcon(String hintText, String fieldType, String fieldIco
             decoration: InputDecoration(
               hintText: hintText,
               hintStyle: TextStyle(
-                  color: Colors.grey.withOpacity(0.5),
+                  color: ColorStyle.textGrey,
                   fontSize: 14.sp,
                   fontWeight: FontWeight.normal,
                   fontFamily: "Avenir"),
@@ -131,9 +133,9 @@ Widget forgotPassword(){
         'Forgot password',
         style: TextStyle(
           fontSize: 12.sp,
-          color: Colors.black,
+          color: ColorStyle.primaryText,
           decoration: TextDecoration.underline,
-          decorationColor: Colors.blue,
+          decorationColor: ColorStyle.primaryText,
         ),
       ),
     ),
